@@ -5,16 +5,22 @@ def convert(liczba: int, base: int) -> str:
     :param base:
     :return:
 
-convert(10, 2)
-    '202'
+    >>> convert(10, 2)
+    '1010'
     >>> convert(0, 4)
     '0'
     """
-    new_liczba = ""
+    wynik = ""
+    if liczba == 0:
+
+        return "0"
     while liczba > 0:
-        new_liczba = str(liczba & base) + new_liczba
+        digit = liczba % base
+        wynik = str(digit) + wynik
         liczba //= base
-        print(new_liczba)
+
+    return wynik
+
         # PYTEST - komentarz
 
 def main():
